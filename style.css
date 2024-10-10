@@ -46,11 +46,19 @@ main {
 }
 
 /* content */
-.about, .accounts, #ascii_art, #quote, #contact {
+.about, .accounts, #quote, #contact {
     border: 1px solid #ccc;
     margin-bottom: 20px;
     background-color: white;
     padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#ascii_art {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
