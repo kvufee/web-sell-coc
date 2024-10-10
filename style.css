@@ -1,3 +1,142 @@
 section.about {
     margin: auto;
 }
+
+/* main styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #366a37;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/**/
+main {
+    padding: 20px;
+}
+
+/* content */
+.about, .accounts, #ascii_art, #quote, #contact {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#my_achievements {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+h2 {
+    color: #366a37;
+}
+
+article {
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0;
+    padding: 10px 0;
+}
+
+article img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* quote */
+blockquote {
+    background-color: #eaeaea;
+    padding: 15px;
+    border-left: 5px solid #366a37;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+/* text */
+strong {
+    color: #d54e21;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+ins {
+    text-decoration: underline;
+}
+
+/* Контактная информация */
+#contact p {
+    margin: 5px 0;
+}
+
+/* Стилизация заголовков */
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+/* Параметры текстов */
+code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f4f4f4;
+    padding: 2px 5px;
+}
+
+/* footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #366a37;
+    color: white;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
