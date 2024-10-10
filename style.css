@@ -45,7 +45,16 @@ main {
 }
 
 /* content */
-.about, .accounts, #quote, #contact {
+.about {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.accounts, #quote, #contact {
     border: 1px solid #ccc;
     margin-bottom: 20px;
     background-color: white;
@@ -60,7 +69,7 @@ main {
 }
 
 .logo {
-    width: 60px;
+    width: 100px;
     height: auto;
     margin-right: 10px;
 }
@@ -117,6 +126,10 @@ del {
 
 ins {
     text-decoration: underline;
+}
+
+.italic {
+    font-style: italic;
 }
 
 /* Контактная информация */
