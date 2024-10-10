@@ -9,9 +9,12 @@ body {
 }
 
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
     background-color: #366a37;
     color: white;
-    padding: 20px;
     text-align: center;
 }
 
@@ -49,6 +52,17 @@ main {
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
 }
 
 #ascii_art {
