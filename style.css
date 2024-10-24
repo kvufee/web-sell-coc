@@ -194,7 +194,7 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
-    #quote {
+    section#quote {
         display: none;
     }
 }
