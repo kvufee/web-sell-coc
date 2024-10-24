@@ -12,10 +12,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
     background-color: #366a37;
     color: white;
     text-align: center;
+    position: sticky;
+    top: 0;
 }
 
 /* navigation */
@@ -26,7 +28,7 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 nav ul li a {
