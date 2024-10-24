@@ -57,33 +57,35 @@
         </section>
 
         <section id="accounts-table">
-            <h2>Таблица аккаунтов</h2>
-            <table class="table-accounts">
-                <thead>
-                    <tr>
-                        <th>Название</th>
-                        <th>Цена</th>
-                        <th>Описание</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Аккаунт TH 12</td>
-                        <td>5200 рублей</td>
-                        <td>Мощная база со множеством экипировок</td>
-                    </tr>
-                    <tr>
-                        <td>Аккаунт TH 9</td>
-                        <td>2500 рублей</td>
-                        <td>Развивающийся аккаунт</td>
-                    </tr>
-                    <tr>
-                        <td>Аккаунт TH 11</td>
-                        <td>4000 рублей</td>
-                        <td>Хороший баланс ресурсов</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <h2>Аккаунты в продаже</h2>
+                <table class="table-accounts">
+                    <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Цена</th>
+                            <th>Описание</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="odd">
+                            <td data-label="Name">Аккаунт TH 12</td>
+                            <td data-label="Price">5200 рублей</td>
+                            <td data-label="About">Мощная база со множеством экипировок</td>
+                        </tr>
+                        <tr class="even">
+                            <td data-label="Name">Аккаунт TH 9</td>
+                            <td data-label="Price">2500 рублей</td>
+                            <td data-label="About">Развивающийся аккаунт</td>
+                        </tr>
+                        <tr class="odd">
+                            <td data-label="Name">Аккаунт TH 11</td>
+                            <td data-label="Price">4000 рублей</td>
+                            <td data-label="About">Хороший баланс ресурсов</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <style>

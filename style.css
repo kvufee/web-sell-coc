@@ -198,3 +198,35 @@ footer {
         display: none;
     }
 }
+
+.table-accounts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.table-accounts thead, .table-accounts tbody, .table-accounts tr {
+    display: contents;
+}
+
+.table-accounts th, .table-accounts td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.table-accounts thead th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.table-accounts tbody tr:nth-child(odd) {
+    background-color: #aaaaaa;
+}
+
+.table-accounts tbody tr:nth-child(even) td {
+    background-color: #ffffff;
+}
+
+.table-container h2 {
+    text-align: center;
+}
