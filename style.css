@@ -85,11 +85,9 @@ main {
 
 .grid-accounts {
     display: grid;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1000px;
-    width: 100%;
-    overflow: auto;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
