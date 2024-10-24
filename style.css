@@ -56,7 +56,14 @@ main {
     text-align: center;
 }
 
-.accounts, #quote, #contact {
+.accounts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#quote, #contact {
     border: 1px solid #ccc;
     margin-bottom: 20px;
     background-color: white;
@@ -74,6 +81,17 @@ main {
     width: 100px;
     height: auto;
     margin-right: 10px;
+}
+
+.grid-accounts {
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1000px;
+    width: 100%;
+    overflow: auto;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 #ascii_art {
@@ -99,13 +117,21 @@ h2 {
 
 article {
     border-bottom: 1px solid #ccc;
-    margin: 10px 0;
-    padding: 10px 0;
+    margin: 10px;
+    padding: 10px;
+    flex: 1 0 300px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 article img {
     max-width: 100%;
     height: auto;
+}
+
+#accounts h2 {
+    text-align: center;
 }
 
 /* quote */
@@ -163,7 +189,7 @@ footer {
     background-color: #366a37;
     color: white;
     position: relative;
-    width: 100%;
+    max-width: 100%;
     bottom: 0;
 }
 
