@@ -166,3 +166,9 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
+@media screen and (max-width: 800px) {
+    #quote {
+        display: none;
+    }
+}
