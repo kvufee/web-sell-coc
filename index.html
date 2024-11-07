@@ -6,6 +6,7 @@
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap">
             <meta name="keywords" content="аккаунты, клеш оф кленс, магазин">
             <meta name="description" content="Sell CoC">
+            <script src="script/main.js" defer></script>
             <title>Sell CoC</title>
         </head>
 
@@ -166,24 +167,5 @@
             <footer>
                 <p>&copy; 2024 Sell CoC. Все права защищены.</p>
             </footer>
-            
-            <script>
-                const darkenButton = document.getElementById('darkenButton');
-            
-                let darkened = false;
-            
-                function toggleDarken() {
-                    if (!darkened) {
-                        document.body.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-                        darkened = true;
-                    } else {
-                        document.body.style.backgroundColor = '';
-                        document.body.style.color = '';
-                        darkened = false;
-                    }
-                }
-            
-                darkenButton.addEventListener('click', toggleDarken);
-            </script>
         </body>
     </html>
