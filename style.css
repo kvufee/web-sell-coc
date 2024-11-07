@@ -245,6 +245,7 @@ footer {
 nav ul li a.active {
     background-color: #4CAF50;
     color: #ffffff;
+    padding: 10px;
 }
 
 nav ul li a:hover {
