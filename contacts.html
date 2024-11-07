@@ -2,9 +2,10 @@
 <html lang="ru">
     <head>
         <meta charset="UTF-8">
-        <link href="../style.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap">
         <meta name="keywords" content="аккаунты, клеш оф кленс, магазин">
+        <script src="script/main.js" defer></script>
         <meta name="description" content="Sell CoC">
         <title>Sell CoC - About</title>
     </head>
@@ -12,16 +13,16 @@
     <body>
         <header>
             <div class="brand">
-                <a href="../index.html">
-                    <img src="../images/logo.png" alt="лого" class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="лого" class="logo">
                 </a>
                 <h1>Sell CoC</h1>
             </div>
             <nav>
                 <ul>
-                    <li><a href="/about/about.html">О сайте</a></li>
-                    <li><a href="../accounts/accounts.html">Аккаунты в продаже</a></li>
-                    <li><a href="../contacts/contacts.html">Контакты</a></li>
+                    <li><a href="about.html">О сайте</a></li>
+                    <li><a href="accounts.html">Аккаунты в продаже</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
                 </ul>
             </nav>
         </header>
@@ -40,25 +41,6 @@
         <footer>
             <p>&copy; 2024 Sell CoC. Все права защищены.</p>
         </footer>
-
-        <script>
-            const darkenButton = document.getElementById('darkenButton');
-        
-            let darkened = false;
-        
-            function toggleDarken() {
-                if (!darkened) {
-                    document.body.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-                    darkened = true;
-                } else {
-                    document.body.style.backgroundColor = '';
-                    document.body.style.color = '';
-                    darkened = false;
-                }
-            }
-        
-            darkenButton.addEventListener('click', toggleDarken);
-        </script>
         
     </body>
 </html>

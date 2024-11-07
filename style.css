@@ -53,10 +53,6 @@ nav ul li a {
     font-weight: bold;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
 /**/
 main {
     padding: 20px;
@@ -244,4 +240,13 @@ footer {
 
 .table-container h2 {
     text-align: center;
+}
+
+nav ul li a.active {
+    background-color: #4CAF50;
+    color: #ffffff;
+}
+
+nav ul li a:hover {
+    background-color: #4CAF50;
 }
