@@ -7,7 +7,22 @@ body {
     margin: 0;
     padding: 0;
     transition: background-color 0.3s, color 0.3s;
-}   
+}
+
+#darkenButton {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #366a37;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#darkenButton:hover {
+    background-color: #4caf50;
+}
 
 header {
     display: flex;
@@ -229,18 +244,4 @@ footer {
 
 .table-container h2 {
     text-align: center;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #366a37;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #4CAF50;
 }
