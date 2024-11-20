@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <link href="style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap">
+        <meta name="keywords" content="аккаунты, клеш оф кленс, магазин">
+        <meta name="description" content="Sell CoC">
+        <script src="script/constructor_form.js" defer></script>
+        <title>Sell CoC - About</title>
+    </head>
+
+    <body>
+        <header>
+            <div class="brand">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="лого" class="logo">
+                </a>
+                <h1>Sell CoC</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="about.html">О сайте</a></li>
+                    <li><a href="accounts.html">Аккаунты в продаже</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="constructor.html">Конструктор</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section id="form-container">
+            <div class="form-container">
+                <h1>Создать запрос на нужный аккаунт</h1>
+                <form id="taskForm">
+                    <label for="townHallLevel">Минимальный уровень ратуши (1-17):</label>
+                    <input type="number" id="townHallLevel" name="townHallLevel" min="1" max="17" required><br><br>
+        
+                    <label for="builderHutLevel">Минимальный уровень хижины строителя (1-10):</label>
+                    <input type="number" id="builderHutLevel" name="builderHutLevel" min="1" max="10" required><br><br>
+        
+                    <label for="priority">Приоритет (цена может увеличиться):</label>
+                    <select id="priority" name="priority" required>
+                        <option value="default">Обычный</option>
+                        <option value="high">Высокий</option>
+                    </select><br><br>
+        
+                    <label for="maxPrice">Максимальная цена:</label>
+                    <input type="number" id="maxPrice" name="maxPrice" min="0" step="1" required><br><br>
+        
+                    <button type="submit">Создать запрос</button>
+                </form>
+            </div>
+        </section>
+        
+        <section id="task-list">
+            <h2>Список аккаунтов</h2>
+            <div class="task-list" id="taskList"></div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Sell CoC. Все права защищены.</p>
+        </footer>
+
+    </body>
+
+</html>
