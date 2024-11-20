@@ -28,31 +28,29 @@
                 </ul>
             </nav>
         </header>
-        
+
         <section id="form-container">
             <div class="form-container">
                 <h1>Выставить аккаунт на продажу</h1>
                 <form id="taskForm">
-                    <label for="townHallLevel">Уровень ратуши (1-17):</label>
-                    <input type="number" id="townHallLevel" name="townHallLevel" min="1" max="17" required><br><br>
-        
-                    <label for="builderHutLevel">Уровень хижины строителя (1-10):</label>
-                    <input type="number" id="builderHutLevel" name="builderHutLevel" min="1" max="10" required><br><br>
-                    
-                    <label for="trophiesMain">Количество кубков:</label>
-                    <input type="number" id="trophies" name="trophies" min="1" max="7000" required><br><br>
+                    <label for="data">TH _, BH _:</label>
+                    <textarea id="data" name="data" rows="4" cols="50" required></textarea><br><br>
 
-                    <label for="trophiesBH">Количество кубков деревня строителя:</label>
-                    <input type="number" id="trophiesBH" name="trophiesBH" min="1" max="7000" required><br><br>
-        
+                    <label for="image">Изображение:</label>
+                    <input type="file" id="image" name="image" accept="image/*" required><br><br>
+
+                    <label for="description">Описание:</label>
+                    <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+
                     <label for="maxPrice">Цена:</label>
                     <input type="number" id="maxPrice" name="maxPrice" min="0" step="1" required><br><br>
-        
+
                     <button type="submit">Продолжить</button>
                 </form>
             </div>
         </section>
-        
+
         <section id="task-list">
             <h2>Ваши аккаунты в продаже</h2>
             <div class="task-list" id="taskList"></div>
@@ -63,5 +61,4 @@
         </footer>
 
     </body>
-
 </html>

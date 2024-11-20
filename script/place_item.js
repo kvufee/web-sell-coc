@@ -5,23 +5,34 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const townHallLevel = document.getElementById('townHallLevel').value;
-        const builderHutLevel = document.getElementById('builderHutLevel').value;
-        const trophiesMain = document.getElementById('trophiesMain').value;
-        const trophiesBH = document.getElementById('trophiesBH').value;
+        const data = document.getElementById('data').value;
+        const imageInput = document.getElementById('image').files[0];
+        const description = document.getElementById('description').value;
         const maxPrice = document.getElementById('maxPrice').value;
+        
 
-        const task = {
-            townHallLevel: townHallLevel,
-            builderHutLevel: builderHutLevel,
-            trophiesMain: trophiesMain,
-            trophiesBH: trophiesBH,
-            maxPrice: maxPrice
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const imageData = event.target.result;
+
+            const task = {
+                data: data,
+                image: imageData,
+                description: description,
+                maxPrice: maxPrice
+  
+            };
+
+            saveTaskToLocalStorage(task);
+            displayTask(task);
+            form.reset();
         };
 
-        saveTaskToLocalStorage(task);
-        displayTask(task);
-        form.reset();
+        if (imageInput) {
+            reader.readAsDataURL(imageInput);
+        } else {
+            alert('Пожалуйста, выберите изображение.');
+        }
     });
 
     loadTasksFromLocalStorage();
@@ -45,20 +56,21 @@ function displayTask(task) {
     const taskItem = document.createElement('div');
     taskItem.className = 'task-item';
 
-    const taskTownHallLevel = document.createElement('p');
-    taskTownHallLevel.textContent = `Уровень ратуши: ${task.townHallLevel}`;
+    const taskData = document.createElement('p');
+    taskData.textContent = `Данные: ${task.description}`;
 
-    const taskBuilderHutLevel = document.createElement('p');
-    taskBuilderHutLevel.textContent = `Уровень хижины строителя: ${task.builderHutLevel}`;
+    const taskImage = document.createElement('img');
+    taskImage.src = task.image;
+    taskImage.alt = 'Изображение аккаунта';
+    taskImage.style.maxWidth = '100px';
+    taskImage.style.maxHeight = '100px';
 
-    const taskTrophiesMain = document.createElement('p');
-    taskTrophiesMain.textContent = `Трофеи: ${task.taskTrophiesMain}`;
-
-    const taskTrophiesBH = document.createElement('p');
-    taskTrophiesBH.textContent = `Трофеи строителя: ${task.taskTrophiesBH}`;
+    const taskDescription = document.createElement('p');
+    taskDescription.textContent = `Описание: ${task.description}`;
 
     const taskMaxPrice = document.createElement('p');
     taskMaxPrice.textContent = `Максимальная цена: ${task.maxPrice}`;
+
 
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Удалить';
@@ -66,10 +78,9 @@ function displayTask(task) {
         removeTask(taskItem, task);
     });
 
-    taskItem.appendChild(taskTownHallLevel);
-    taskItem.appendChild(taskBuilderHutLevel);
-    taskItem.appendChild(taskTrophiesMain);
-    taskItem.appendChild(taskTrophiesBH);
+    taskItem.appendChild(taskData);
+    taskItem.appendChild(taskImage);
+    taskItem.appendChild(taskDescription);
     taskItem.appendChild(taskMaxPrice);
     taskItem.appendChild(deleteButton);
 
