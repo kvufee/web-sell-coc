@@ -23,8 +23,8 @@
                     <li><a href="about.html">О сайте</a></li>
                     <li><a href="accounts.html">Аккаунты в продаже</a></li>
                     <li><a href="contacts.html">Контакты</a></li>
-                    <li><a href="constructor.html">Создать запрос</a></li>
-                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="constructor.html">Конструктор</a></li>
+                    <li><a href="placeitem.html">Продать</a></li>
                 </ul>
             </nav>
         </header>
@@ -52,7 +52,7 @@
                 </form>
             </div>
         </section>
-        
+
         <section id="task-list">
             <h2>Список аккаунтов</h2>
             <div class="task-list" id="taskList"></div>
@@ -61,6 +61,16 @@
         <footer>
             <p>&copy; 2024 Sell CoC. Все права защищены.</p>
         </footer>
+
+        <template id="task-template">
+            <div class="task-item">
+                <p class="task-town-hall-level"></p>
+                <p class="task-builder-hut-level"></p>
+                <p class="task-priority"></p>
+                <p class="task-max-price"></p>
+                <button aria-label="Удалить задачу">Удалить</button>
+            </div>
+        </template>
 
     </body>
 
