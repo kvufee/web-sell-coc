@@ -1,36 +1,58 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     const preloader = document.getElementById('preloader');
-    const content = document.getElementById('content');
+    const errorMessage = document.getElementById('error-message');
+    const commentsList = document.getElementById('comments-list');
 
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+    function fetchComments()
+    {
+        const randomFilter = Math.random() > 0.5 ? 'id_gte=100' : 'id_lte=200';
+        const url = `https://jsonplaceholder.typicode.com/comments?${randomFilter}`;
+
+        fetch(url).then(response => {
+                if (!response.ok) { throw new Error('Network response was not ok'); }
+                
+                return response.json();
+            }).then(data => {
+                preloader.style.display = 'none';
+                renderComments(data);
+            }).catch(error => {
+                preloader.style.display = 'none';
+                errorMessage.style.display = 'block';
+                console.error('Error fetching comments:', error);
+            });
     }
 
-    const randomId = getRandomInt(1, 200);
-    const filterCondition = randomId > 100 ? `id=${randomId}` : `id_lt=${randomId}`;
+    function formatDate(date)
+    {
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
 
-    fetch(`https://jsonplaceholder.typicode.com/posts?${filterCondition}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            preloader.style.display = 'none';
-            renderData(data);
-        })
-        .catch(error => {
-            preloader.style.display = 'none';
-            content.innerHTML = '<p>⚠ Что-то пошло не так</p>';
-            console.error('There was a problem with the fetch operation:', error);
-        });
+        return `${day}-${month}-${year} ${hours}:${minutes}`;
+    }
 
-    function renderData(data) {
-        data.forEach(item => {
-            const postElement = document.createElement('div');
-            postElement.innerHTML = `<h2>${item.title}</h2><p>${item.body}</p>`;
-            content.appendChild(postElement);
+
+    function renderComments(comments)
+    {
+        commentsList.innerHTML = '';
+        comments.forEach(comment =>
+        {
+            const commentItem = document.createElement('div');
+            commentItem.classList.add('comment-item');
+            const date = new Date(new Date() - Math.random()*(1e+12));
+            dateFormatted = formatDate(date);
+
+            commentItem.innerHTML = `
+                <h4> ${comment.name} </h4>
+                <p> ${comment.body} </p>
+                <p> ${comment.email} | ${dateFormatted} </p>
+            `;
+            
+            commentsList.appendChild(commentItem);
         });
     }
+
+    fetchComments();
 });

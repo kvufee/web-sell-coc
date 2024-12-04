@@ -323,8 +323,11 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-size: 24px;
-    font-weight: bold;
+}
+
+.preloader img {
+    width: 50px;
+    height: auto;
 }
 
 .error-message {
