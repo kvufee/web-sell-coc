@@ -1,9 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function()
+{
     const form = document.getElementById('taskForm');
     const taskList = document.getElementById('taskList');
     const taskTemplate = document.getElementById('task-template');
 
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', function(event)
+    {
         event.preventDefault();
 
         const townHallLevel = document.getElementById('townHallLevel').value;
@@ -11,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const priority = document.getElementById('priority').value;
         const maxPrice = document.getElementById('maxPrice').value;
 
-        const task = {
+        const task =
+        {
             id: generateUniqueId(),
             townHallLevel: townHallLevel,
             builderHutLevel: builderHutLevel,
@@ -27,32 +30,38 @@ document.addEventListener('DOMContentLoaded', function() {
     loadTasksFromLocalStorage();
 });
 
-function generateUniqueId() {
+function generateUniqueId()
+{
     return '_' + Math.random().toString(36).substr(2, 9);
 }
 
-function saveTaskToLocalStorage(task) {
-    try {
+function saveTaskToLocalStorage(task)
+{
+    try
+    {
         let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
         tasks.push(task);
         localStorage.setItem('tasks', JSON.stringify(tasks));
-    } catch (error) {
+    } catch (error)
+    {
         console.error('Error saving task to local storage:', error);
     }
 }
 
-function loadTasksFromLocalStorage() {
-    try {
+function loadTasksFromLocalStorage()
+{
+    try 
+    {
         let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-        tasks.forEach(task => {
-            displayTask(task);
-        });
-    } catch (error) {
+        tasks.forEach(task => { displayTask(task); });
+    } catch (error)
+    {
         console.error('Error loading tasks from local storage:', error);
     }
 }
 
-function displayTask(task) {
+function displayTask(task)
+{
     const taskList = document.getElementById('taskList');
     const template = document.getElementById('task-template').content.cloneNode(true);
 
@@ -64,20 +73,21 @@ function displayTask(task) {
     taskItem.querySelector('.task-max-price').textContent = `Максимальная цена: ${task.maxPrice}`;
 
     const deleteButton = taskItem.querySelector('button');
-    deleteButton.addEventListener('click', function() {
-        removeTask(taskItem, task.id);
-    });
+    deleteButton.addEventListener('click', function() { removeTask(taskItem, task.id); });
 
     taskList.appendChild(taskItem);
 }
 
-function removeTask(taskItem, taskId) {
+function removeTask(taskItem, taskId)
+{
     taskItem.remove();
-    try {
+    try
+    {
         let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
         tasks = tasks.filter(t => t.id !== taskId);
         localStorage.setItem('tasks', JSON.stringify(tasks));
-    } catch (error) {
+    } catch (error)
+    {
         console.error('Error removing task from local storage:', error);
     }
 }

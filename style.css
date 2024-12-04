@@ -317,3 +317,25 @@ nav ul li a:hover {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+.preloader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.error-message {
+    color: red;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.comment-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
