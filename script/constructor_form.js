@@ -81,5 +81,3 @@ function removeTask(taskItem, taskId) {
         console.error('Error removing task from local storage:', error);
     }
 }
-
-// разница между storage (local и session)
