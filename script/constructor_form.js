@@ -80,3 +80,7 @@ function removeTask(taskItem, task) {
         console.error('Error removing task from local storage:', error);
     }
 }
+
+// удаление через массив например
+// хранение через числа
+// разница между storage (local и session)
