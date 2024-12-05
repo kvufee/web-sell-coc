@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function()
     const preloader = document.getElementById('preloader');
     const errorMessage = document.getElementById('error-message');
     const commentsList = document.getElementById('comments-list');
+    const commentTemplate = document.getElementById('comment-template').content;
 
     function fetchComments()
     {
@@ -38,20 +39,35 @@ document.addEventListener('DOMContentLoaded', function()
     // че с промисом работает и как переписать
     // ограничить количество комментов до +- 20
 
-    function renderComments(comments)
-    {
+    // function renderComments(comments)
+    // {
+    //     commentsList.innerHTML = '';
+    //     comments.forEach(comment => {
+    //         const commentItem = document.createElement('div');
+    //         commentItem.classList.add('comment-item');
+    //         const date = new Date(new Date() - Math.random() * (1e+12));
+    //         const dateFormatted = formatDate(date);
+
+    //         commentItem.innerHTML = `
+    //             <h4>${comment.name}</h4>
+    //             <p>${comment.body}</p>
+    //             <p>${comment.email} | ${dateFormatted}</p>
+    //         `;
+
+    //         commentsList.appendChild(commentItem);
+    //     });
+    // }
+
+    function renderComments(comments) {
         commentsList.innerHTML = '';
         comments.forEach(comment => {
-            const commentItem = document.createElement('div');
-            commentItem.classList.add('comment-item');
+            const commentItem = commentTemplate.cloneNode(true);
             const date = new Date(new Date() - Math.random() * (1e+12));
             const dateFormatted = formatDate(date);
 
-            commentItem.innerHTML = `
-                <h4>${comment.name}</h4>
-                <p>${comment.body}</p>
-                <p>${comment.email} | ${dateFormatted}</p>
-            `;
+            commentItem.querySelector('h4').textContent = comment.name;
+            commentItem.querySelectorAll('p')[0].textContent = comment.body;
+            commentItem.querySelectorAll('p')[1].textContent = `${comment.email} | ${dateFormatted}`;
 
             commentsList.appendChild(commentItem);
         });
