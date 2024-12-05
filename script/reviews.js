@@ -21,16 +21,22 @@ document.addEventListener('DOMContentLoaded', function()
         });
     }
 
-    function formatDate(date)
-    {
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const year = date.getFullYear();
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
-
-        return `${day}-${month}-${year} ${hours}:${minutes}`;
+    function formatDate(date) {
+        const options = {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        };
+    
+        const formatter = new Intl.DateTimeFormat('ru-RU', options);
+        return formatter.format(date).replace(',', '');
     }
+
+    // че с промисом работает и как переписать
+    // ограничить количество комментов до +- 20
 
     function renderComments(comments)
     {
@@ -50,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function()
             commentsList.appendChild(commentItem);
         });
     }
+
+    // renderComments в template
 
     fetchComments()
         .then(comments => {
