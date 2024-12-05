@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function()
     fetchComments()
         .then(comments => {
             preloader.style.display = 'none';
+            commentsList.style.display = 'block';
             renderComments(comments);
         })
         .catch(error => {
