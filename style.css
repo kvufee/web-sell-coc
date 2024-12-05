@@ -300,16 +300,11 @@ nav ul li a:hover {
     background-color: #fff;
 }
 
-.preloader {
-    display: flex;
+#preloader {
+    display:block;
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
-
-.preloader img {
-    width: 50px;
-    height: auto;
 }
 
 .error-message {
