@@ -58,18 +58,6 @@ document.addEventListener('DOMContentLoaded', function()
         });
     }
 
-    fetchComments()
-        .then(comments => {
-            preloader.style.display = 'none';
-            commentsList.style.display = 'block';
-            renderComments(comments);
-        })
-        .catch(error => {
-            preloader.style.display = 'none';
-            errorMessage.style.display = 'block';
-            console.error('Error fetching comments:', error);
-        });
-
     async function init()
     {
         try
