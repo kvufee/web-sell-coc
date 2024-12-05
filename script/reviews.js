@@ -5,22 +5,24 @@ document.addEventListener('DOMContentLoaded', function()
     const commentsList = document.getElementById('comments-list');
     const commentTemplate = document.getElementById('comment-template').content;
 
-    function fetchComments()
+    async function fetchComments()
     {
         const randomFilter = Math.random() > 0.5 ? 'id_gte=100' : 'id_lte=200';
         const limit = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
         const url = `https://jsonplaceholder.typicode.com/comments?${randomFilter}&_limit=${limit}`;
 
-        return new Promise((resolve, reject) => {
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) { throw new Error('Network response was not ok'); }
+        try
+        {
+            const response = await fetch(url);
 
-                    return response.json();
-                })
-                .then(data => { resolve(data); })
-                .catch(error => { reject(error); });
-        });
+            if (!response.ok) { throw new Error('Network response was not ok'); }
+
+            const data = await response.json();
+            return data;
+        } catch (error)
+        {
+            throw error;
+        }
     }
 
     function formatDate(date)
@@ -38,8 +40,6 @@ document.addEventListener('DOMContentLoaded', function()
 
         return formatter.format(date).replace(',', '');
     }
-
-    // че с промисом работает и как переписать
 
     function renderComments(comments)
     {
@@ -69,4 +69,24 @@ document.addEventListener('DOMContentLoaded', function()
             errorMessage.style.display = 'block';
             console.error('Error fetching comments:', error);
         });
+
+    async function init()
+    {
+        try
+        {
+            const comments = await fetchComments();
+            preloader.style.display = 'none';
+            commentsList.style.display = 'block';
+
+            renderComments(comments);
+        } catch (error)
+        {
+            preloader.style.display = 'none';
+            errorMessage.style.display = 'block';
+
+            console.error('Error fetching comments:', error);
+        }
+    }
+
+    init();
 });
