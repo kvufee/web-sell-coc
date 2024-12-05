@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function()
     function fetchComments()
     {
         const randomFilter = Math.random() > 0.5 ? 'id_gte=100' : 'id_lte=200';
-        const url = `https://jsonplaceholder.typicode.com/comments?${randomFilter}`;
+        const limit = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
+        const url = `https://jsonplaceholder.typicode.com/comments?${randomFilter}&_limit=${limit}`;
 
         return new Promise((resolve, reject) => {
             fetch(url)
@@ -22,7 +23,8 @@ document.addEventListener('DOMContentLoaded', function()
         });
     }
 
-    function formatDate(date) {
+    function formatDate(date)
+    {
         const options = {
             day: '2-digit',
             month: '2-digit',
@@ -33,33 +35,16 @@ document.addEventListener('DOMContentLoaded', function()
         };
     
         const formatter = new Intl.DateTimeFormat('ru-RU', options);
+
         return formatter.format(date).replace(',', '');
     }
 
     // че с промисом работает и как переписать
-    // ограничить количество комментов до +- 20
 
-    // function renderComments(comments)
-    // {
-    //     commentsList.innerHTML = '';
-    //     comments.forEach(comment => {
-    //         const commentItem = document.createElement('div');
-    //         commentItem.classList.add('comment-item');
-    //         const date = new Date(new Date() - Math.random() * (1e+12));
-    //         const dateFormatted = formatDate(date);
-
-    //         commentItem.innerHTML = `
-    //             <h4>${comment.name}</h4>
-    //             <p>${comment.body}</p>
-    //             <p>${comment.email} | ${dateFormatted}</p>
-    //         `;
-
-    //         commentsList.appendChild(commentItem);
-    //     });
-    // }
-
-    function renderComments(comments) {
+    function renderComments(comments)
+    {
         commentsList.innerHTML = '';
+
         comments.forEach(comment => {
             const commentItem = commentTemplate.cloneNode(true);
             const date = new Date(new Date() - Math.random() * (1e+12));
@@ -72,8 +57,6 @@ document.addEventListener('DOMContentLoaded', function()
             commentsList.appendChild(commentItem);
         });
     }
-
-    // renderComments в template
 
     fetchComments()
         .then(comments => {
