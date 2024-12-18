@@ -22,9 +22,27 @@ document.addEventListener('DOMContentLoaded', function()
             maxPrice: maxPrice
         };
 
-        saveTaskToLocalStorage(task);
-        displayTask(task);
-        form.reset();
+        if (isDuplicateTask(task))
+            {
+            iziToast.show({
+                title: 'Ошибка',
+                message: 'Такой запрос уже существует!',
+                position: 'bottomRight',
+                color: 'red',
+            });
+        } else {
+            saveTaskToLocalStorage(task);
+            displayTask(task);
+
+            iziToast.show({
+                title: 'Успех',
+                message: 'Запрос успешно добавлен!',
+                position: 'bottomRight',
+                color: 'green',
+            });
+
+            form.reset();
+        }
     });
 
     loadTasksFromLocalStorage();
@@ -73,7 +91,9 @@ function displayTask(task)
     taskItem.querySelector('.task-max-price').textContent = `Максимальная цена: ${task.maxPrice}`;
 
     const deleteButton = taskItem.querySelector('button');
-    deleteButton.addEventListener('click', function() { removeTask(taskItem, task.id); });
+    deleteButton.addEventListener('click', function() { 
+        removeTask(taskItem, task.id); 
+    });
 
     taskList.appendChild(taskItem);
 }
@@ -86,8 +106,34 @@ function removeTask(taskItem, taskId)
         let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
         tasks = tasks.filter(t => t.id !== taskId);
         localStorage.setItem('tasks', JSON.stringify(tasks));
+
+        iziToast.show({
+            title: 'Удалено',
+            message: 'Запрос успешно удалён!',
+            position: 'bottomRight',
+            color: 'blue',
+        });
     } catch (error)
     {
         console.error('Error removing task from local storage:', error);
+    }
+}
+
+function isDuplicateTask(newTask)
+{
+    try
+    {
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+        return tasks.some(task => 
+            task.townHallLevel === newTask.townHallLevel &&
+            task.builderHutLevel === newTask.builderHutLevel &&
+            task.priority === newTask.priority &&
+            task.maxPrice === newTask.maxPrice);
+
+    } catch (error)
+    {
+        console.error('Error checking for duplicate task:', error);
+        return false;
     }
 }
